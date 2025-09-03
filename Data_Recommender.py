@@ -74,7 +74,7 @@ Dataset Details: {dataset_details}
           "columns": ["<col1>", "<col2>", "<col3>"]
         }}
       ],
-      "recommendation_reason": "### Dataset Selection\n\n#### [Dataset Name 1]\n- **Purpose**: [Why this dataset is needed]\n- **Key Columns**: [Specific columns and their relevance]\n- **Coverage**: [Time period, geography, or scope covered]\n\n#### [Dataset Name 2] (if applicable)\n- **Purpose**: [Why this dataset is needed]\n- **Key Columns**: [Specific columns and their relevance]\n- **Relationship**: [How it connects to other datasets]\n\n### Analysis Summary:\n[Summary of how the selected datasets and columns together address the user's question]"
+      "recommendation_reason": "### Dataset Selection\n\n#### [Dataset Name 1]\n- **Purpose**: [Why this dataset is needed]\n\n#### [Dataset Name 2] (if applicable)\n- **Purpose**: [Why this dataset is needed]\n### Analysis Summary:\n[Summary of how the selected datasets and columns together address the user's question]"
     }}
   </response_structure>
 </core_principles>
@@ -136,6 +136,7 @@ if st.button("Send") and user_prompt.strip():
   st.subheader("📌 Recommendation Reason")
 
   st.info(recommender_response.recommendation_reason)
+
 
 
 
