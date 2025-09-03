@@ -47,7 +47,7 @@ db_metadata= [
         }
     },
     {
-        "dataset_name": "IC_goals_data.csv",
+        "dataset_name": "IC_goals_data",
         "variable_the_df_is_stored_in":"ic_goals_df",
         "description": "Dataset containing monthly goals for each territory and employee across quarters.",
         "columns": {
@@ -281,3 +281,4 @@ db_metadata= [
         }
     }
 ]
+
