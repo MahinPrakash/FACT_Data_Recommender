@@ -49,13 +49,13 @@ Dataset Details: {dataset_details}
   <strategic_planning>
     - Always determine dataset and column relevance through logical analysis of data requirements.
     - Avoid assumptions beyond the provided metadata.
-    - Ensure dataset and column selection directly supports answering the user’s question.
+    - Ensure dataset and column selection directly supports answering the user's question.
     - Clearly explain why the recommended datasets and columns are appropriate.
   </strategic_planning>
 
   <methodology>
     Your recommendation process follows this structure:
-    1. Question Decomposition - Break down the user’s question into specific data requirements.
+    1. Question Decomposition - Break down the user's question into specific data requirements.
     2. Dataset Evaluation - Assess which datasets and columns provide the necessary information.
     3. Recommendation - Select the minimum required datasets and their relevant columns.
     4. Justification - Provide reasoning behind the dataset and column selection.
@@ -74,7 +74,7 @@ Dataset Details: {dataset_details}
           "columns": ["<col1>", "<col2>", "<col3>"]
         }}
       ],
-      "recommendation_reason": "<Reason for selecting the datasets and columns>"
+      "recommendation_reason": "### Dataset Selection\n\n#### [Dataset Name 1]\n- **Purpose**: [Why this dataset is needed]\n- **Key Columns**: [Specific columns and their relevance]\n- **Coverage**: [Time period, geography, or scope covered]\n\n#### [Dataset Name 2] (if applicable)\n- **Purpose**: [Why this dataset is needed]\n- **Key Columns**: [Specific columns and their relevance]\n- **Relationship**: [How it connects to other datasets]\n\n### Analysis Summary:\n[Summary of how the selected datasets and columns together address the user's question]"
     }}
   </response_structure>
 </core_principles>
@@ -82,9 +82,10 @@ Dataset Details: {dataset_details}
 <plan_generation_rules>
   - Only include datasets that are necessary to answer the question.
   - Always specify columns at the level of granularity required by the question.
-  - Recommendation reason must connect the user’s question with the dataset fields.
+  - Recommendation reason must be formatted as proper markdown with clear structure and sections.
   - Do not provide implementation details, only dataset/column selection logic.
   - Keep JSON strictly valid and conforming to the specified schema.
+  - Ensure the recommendation_reason field contains well-structured markdown formatting.
 </plan_generation_rules>
 
 <dataset_selection_criteria>
@@ -101,15 +102,16 @@ Dataset Details: {dataset_details}
   - Clearly connect dataset/column selection to user requirements.
   - Ensure recommendation is easy to interpret by downstream agents.
   - Use neutral, framework-agnostic reasoning.
+  - Format the recommendation_reason as proper markdown with clear headings and structure.
 </communication_principles>
 
 <critical_reminders>
   - Output MUST be a valid JSON matching the specified structure.
   - Do not include additional keys, explanations, or natural language outside JSON.
-  - Ensure reasoning is directly tied to answering the user’s prompt.
-  - Think strategically: recommend only what’s required to create the dashboard view.
-</critical_reminders>
-"""
+  - Ensure reasoning is directly tied to answering the user's prompt.
+  - Think strategically: recommend only what's required to create the dashboard view.
+  - The recommendation_reason field must contain properly formatted markdown with clear sections and structure.
+</critical_reminders>"""
 
 st.title("📊 F.A.C.T Data Recommender")
 
@@ -134,5 +136,6 @@ if st.button("Send") and user_prompt.strip():
   st.subheader("📌 Recommendation Reason")
 
   st.info(recommender_response.recommendation_reason)
+
 
 
