@@ -111,7 +111,7 @@ Dataset Details: {dataset_details}
 </critical_reminders>
 """
 
-st.title("📊 Dataset & Column Recommender")
+st.title("📊 F.A.CT Dataset & Column Recommender")
 
 # Input field
 user_prompt = st.text_input("Enter your question:", "")
@@ -132,4 +132,5 @@ if st.button("Send") and user_prompt.strip():
   st.json(datasets_to_use)
 
   st.subheader("📌 Recommendation Reason")
+
   st.info(recommender_response.recommendation_reason)
