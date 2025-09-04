@@ -74,7 +74,7 @@ Dataset Details: {dataset_details}
           "columns": ["<col1>", "<col2>", "<col3>"]
         }}
       ],
-      "recommendation_reason": "### Dataset Selection\n\n#### [Dataset Name 1]\n- **Purpose**: [Why this dataset is needed]\n\n#### [Dataset Name 2] (if applicable)\n- **Purpose**: [Why this dataset is needed]\n### Analysis Summary:\n[Summary of how the selected datasets and columns together address the user's question]"
+      "recommendation_reason": "### Dataset Selection\n\n#### 1.[Dataset Name 1]\n- **Purpose**: [Why this dataset is needed]\n\n#### 2.[Dataset Name 2] (if applicable)\n- **Purpose**: [Why this dataset is needed]\n### Analysis Summary:\n[Summary of how the selected datasets and columns together address the user's question]"
     }}
   </response_structure>
 </core_principles>
@@ -99,6 +99,8 @@ Dataset Details: {dataset_details}
 
 <communication_principles>
   - Be precise, structured, and concise.
+  - Be less verbose in the analysis summary 
+  - Give the info in bullet points where ever possible
   - Clearly connect dataset/column selection to user requirements.
   - Ensure recommendation is easy to interpret by downstream agents.
   - Use neutral, framework-agnostic reasoning.
@@ -136,6 +138,7 @@ if st.button("Send") and user_prompt.strip():
   st.subheader("📌 Recommendation Reason")
 
   st.info(recommender_response.recommendation_reason)
+
 
 
 
